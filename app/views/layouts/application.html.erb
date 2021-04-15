@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'app', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "style" %>
+  </head>
+
+  <body>
+
+<nav class="navbar page-flex">
+
+  <div class="sidebar--open">
+      <button class="btn-toggle" id="sideopen">☰</button>
+  </div>
+
+
+  <div class="sidebar sidebar--close" id="sidebarcontent">
+
+      <div class="sidebar-menu" id="sidebar-menu">
+          <button class="btn-close fa fa-times" aria-hidden="true" id="closeSidebar"></button>
+        <div class="logo">
+          <a href="#"><img class="logo-img" src="assets/img/golden-owl-consulting-company-logo.png"></a>
+        </div>
+          <h2>Categories</h2>
+          <a class="sidebar-category page-link"><h4>Blog</h4></a>
+          <a class="sidebar-category page-link"><h4>Product</h4></a>
+          <a class="sidebar-category page-link"><h4>Best Sellers</h4></a>
+          <h2>Contact</h2>
+          <h4 class="sidebar-contact">If you have any question please dont hesitate to contact us!</h4>
+          <input class="sidebar-email" type = "text" placeholder="Your email">
+          <button class="btn-sidebar">SUBSCRIBE</button>
+      </div>
+  </div>
+
+
+  <div class="logo">
+      <a href="#"><img class="logo-img" src="assets/img/golden-owl-consulting-company-logo.png"></a>
+  </div>
+  
+
+  <div class="navbar-menu" id="menu">
+      <div class="logo logo--responsive">
+          <a href="#"><img class="logo-img" src="assets/img/golden-owl-consulting-company-logo.png"></a>
+      </div>
+      <ul class="group-menu page-list" id="groupMenu">
+          <li class="menu-link">
+              <a class="page-link"  href="#">Home</a>
+          </li>
+          <li class="menu-link">
+              <a class="page-link"  href="#">Blogs</a>
+          </li>
+          <li class="menu-link">
+              <a class="page-link"  href="#">Products</a>
+          </li>
+          <li class="menu-link">
+              <a class="page-link"  href="#">Contact</a>
+          </li>
+      </ul>
+  </div>
+  <div class="navbar-user" id="userMenu">
+      <ul class="navbar-user page-list">
+          <li class="user-link">
+              <a class="page-link"  href="#"><i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+          </li>
+          <li class="user-link ">
+              <a class="page-link"  href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+          </li>
+          <li class="user-link">
+              <a class="page-link"  href="#"><i class="fa fa-search" aria-hidden="true"></i></i></a>
+          </li>
+      </ul>
+  </div>
+  
+  
+  <div class="toggle-menu">
+      <button class="btn-toggle" id="toggle-menu">☰</button>
+  </div>
+</nav>
+
+
+    <%= yield %>
+
+          
+    <footer class="page-foo">
+    <div class="page-flex">
+        <ul class="menu-foo page-list page-flex">
+            <li class="foo-link">
+                <a class="page-link"  href="#">Blogs</a>
+            </li>
+            <li class="foo-link">
+                <a class="page-link"  href="#">FAQS</a>
+            </li>
+            <li class="foo-link">
+                <a class="page-link"  href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="logo logo--foo">
+        <a href="#"></a>
+    </div> 
+
+
+    <div class="social">
+        <ul class="social-group page-list">
+            <li class="social-icon">
+                <a class="social-icon Icon--color page-link"  href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i>
+
+                </a>
+            </li>
+            <li class="social-icon">
+                <a class="social-icon page-link"   href="#"><i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="social-icon">
+                <a class="social-icon page-link"   href="#"><i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="foo-copyright">
+        © 2021 GoldenShop. All right reserved.
+    </div>
+</footer>
+  </body>
+</html>
