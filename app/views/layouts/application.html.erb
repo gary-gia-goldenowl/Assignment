@@ -52,13 +52,15 @@
       </div>
       <ul class="group-menu page-list" id="groupMenu">
           <li class="menu-link">
-              <a class="page-link"  href="#">Home</a>
+              <%= link_to 'Home', root_path , class: "page-link" %>
+          </li>
+
+          <li class="menu-link">
+          <a class="page-link"  href="#">Blog</a>
+
           </li>
           <li class="menu-link">
-              <a class="page-link"  href="#">Blogs</a>
-          </li>
-          <li class="menu-link">
-              <a class="page-link"  href="#">Products</a>
+          <%= link_to 'Products', products_path , class: "page-link" %>
           </li>
           <li class="menu-link">
               <a class="page-link"  href="#">Contact</a>

@@ -56,6 +56,19 @@
                 </div>
 
                 <div class="product page-flex">
+                <tbody>
+                <% @products.each do |product| %>
+                  <tr>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.photo %></td>
+                    <td><%= link_to 'Show', product %></td>
+                    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+                    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
                     <div class="product-item">
                         <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_9.png"></a>
                         <h3 class="product-name">Jacket super warm for FA</h3>
@@ -226,55 +239,6 @@
             </div>
             
         </main>
-        
-
-
-
-          
-        <footer class="page-foo">
-            <div class="page-flex">
-                <ul class="menu-foo page-list page-flex">
-                    <li class="foo-link">
-                        <a class="page-link"  href="#">Blogs</a>
-                    </li>
-                    <li class="foo-link">
-                        <a class="page-link"  href="#">FAQS</a>
-                    </li>
-                    <li class="foo-link">
-                        <a class="page-link"  href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="logo logo--foo">
-                <a href="#"></a>
-            </div> 
-
-
-            <div class="social">
-                <ul class="social-group page-list">
-                    <li class="social-icon">
-                        <a class="social-icon Icon--color page-link"  href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i>
-
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a class="social-icon page-link"   href="#"><i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a class="social-icon page-link"   href="#"><i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="foo-copyright">
-                © 2021 GoldenShop. All right reserved.
-            </div>
-        </footer>
 
     </body>
 
