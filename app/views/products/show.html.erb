@@ -1,101 +1,100 @@
 <% if user_signed_in? && current_user.admin? %>
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </p>
 
-<strong>Photo:</strong><br>
+  <strong>Photo:</strong><br>
 
-<% @product.photos.each do |photo| %>
-  <%= image_tag(photo) %> <br>
-<% end %> 
+  <% @product.photos.each do |photo| %>
+    <%= image_tag(photo) %> <br>
+  <% end %> 
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to 'Back', products_path %>
 
-<% else %>
+  <% else %>
 
-<main class="page-content">
-            <div class="product-detail-content ">
-                <div class="product-group-img">
-                    <div class="product-main" id="MainContain">
-                          <% @product.photos.each do |photo| %>
-                            <%= image_tag(photo, :class => "product-main-img") %>
-                          <% end %>                    
-                    </div>
+  <main class="page-content">
+              <div class="product-detail-content ">
+                  <div class="product-group-img">
+                      <div class="product-main" id="MainContain">
+                            <% @product.photos.each do |photo| %>
+                              <%= image_tag(photo, :class => "product-main-img") %>
+                            <% end %>                    
+                      </div>
 
-                    <div class="product-group-thumbnail page-flex">
+                      <div class="product-group-thumbnail page-flex">
 
-                        <div class="product-thumbnail" >
-                          <% @product.photos.each do |photo| %>
-                            <%= image_tag(photo, :class => "product-thumbnail-img") %>
-                          <% end %>
-                        </div>
-                        
-                        <div class="product-thumbnail" >
-                         <% @product.photos.each do |photo| %>
-                            <%= image_tag(photo, :class => "product-thumbnail-img") %>
-                          <% end %>
-                        </div>
-
-                        <div class="product-thumbnail" >
+                          <div class="product-thumbnail" >
                             <% @product.photos.each do |photo| %>
                               <%= image_tag(photo, :class => "product-thumbnail-img") %>
                             <% end %>
-                        </div>
+                          </div>
+                          
+                          <div class="product-thumbnail" >
+                            <% @product.photos.each do |photo| %>
+                              <%= image_tag(photo, :class => "product-thumbnail-img") %>
+                            <% end %>
+                          </div>
 
-                    </div>
-                </div>
+                          <div class="product-thumbnail" >
+                            <% @product.photos.each do |photo| %>
+                              <%= image_tag(photo, :class => "product-thumbnail-img") %>
+                            <% end %>
+                          </div>
+                      </div>
+                  </div>
 
 
-                <div class="product-description">
-                        <h1>Jacket super warm for FA </h1>
-                        <div class="product-price">$250.00</div>
-                        <div class="product-group-size">
-                            <select class="product-size page-form">
-                                <option>Select Size</option>
-                                <option>X</option>
-                                <option>XL</option>
-                                <option>XS</option>
-                                <option>S</option>
-                            </select>
-                        </div>
-                        <div class="product-quantity">
-                            <input class="product-input page-form" type = "number" min="0" >
-                            <button class="btn btn--round">Add to cart</button>
-                        </div>
-                        <div class="product-info">
-                            <h3>Product description  <i class="fa fa-list-ul" aria-hidden="true"></i></h3>
-                            <p>Jacket super warm with high quality will give you a best spring and the best outlook. </p>
-                        </div>
-                </div>
-            </div>
-            <div class="product-title">
-                <h2>RELATED PRODUCTS</h2>
-            </div>
-            <div class="product page-flex">
-    <% @products.each do |product| %>
-      <div class="product-item">
-          <% product.photos.each do |photo| %>
-            <%= link_to image_tag(photo), product, :class => 'product-img' %>
-          <% end %>
-        <h3 class="product-name"><%= product.name %></h3>
-        <div class="product-price"><%= product.price %></div>
-        <button class="product-add">ADD TO CART</button>
-      </div>
-    <% end %>
-</div>
-        </main> 
+                  <div class="product-description">
+                          <h1><%= @product.name %></h1>
+                          <div class="product-price">$<%= @product.price %></div>
+                          <div class="product-group-size">
+                              <select class="product-size page-form">
+                                  <option>Select Size</option>
+                                  <option>X</option>
+                                  <option>XL</option>
+                                  <option>XS</option>
+                                  <option>S</option>
+                              </select>
+                          </div>
+                          <div class="product-quantity">
+                              <input class="product-input page-form" type = "number" min="0" >
+                              <button class="btn btn--round">Add to cart</button>
+                          </div>
+                          <div class="product-info">
+                              <h3>Product description  <i class="fa fa-list-ul" aria-hidden="true"></i></h3>
+                              <p><%= @product.description %> </p>
+                          </div>
+                  </div>
+              </div>
+              <div class="product-title">
+                  <h2>RELATED PRODUCTS</h2>
+              </div>
+              <div class="product page-flex">
+                <% @products.each do |product| %>
+                  <div class="product-item">
+                    <% product.photos.each do |photo| %>
+                      <%= link_to image_tag(photo), product, :class => 'product-img' %>
+                    <% end %>
+                    <h3 class="product-name"><%= product.name %></h3>
+                    <div class="product-price">$<%= product.price %></div>
+                    <button class="product-add">ADD TO CART</button>
+                  </div>
+                <% end %>
+              </div>
+  </main> 
 <% end %>
