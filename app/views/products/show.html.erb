@@ -16,9 +16,10 @@
 </p>
 
 <p>
-  <strong>Photo:</strong>
-  <%= @product.photo %>
-</p>
+  <strong>Photo:</strong><br>
+  <% @product.photos.each do |photo| %>
+    <%= image_tag(photo) %> <br>
+<% end %></p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

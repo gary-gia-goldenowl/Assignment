@@ -56,19 +56,6 @@
                 </div>
 
                 <div class="product page-flex">
-                <tbody>
-                <% @products.each do |product| %>
-                  <tr>
-                    <td><%= product.name %></td>
-                    <td><%= product.description %></td>
-                    <td><%= product.price %></td>
-                    <td><%= product.photo %></td>
-                    <td><%= link_to 'Show', product %></td>
-                    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-                    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  </tr>
-                <% end %>
-              </tbody>
                     <div class="product-item">
                         <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_9.png"></a>
                         <h3 class="product-name">Jacket super warm for FA</h3>

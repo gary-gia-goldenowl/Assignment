@@ -69,16 +69,28 @@
   </div>
   <div class="navbar-user" id="userMenu">
       <ul class="navbar-user page-list">
-          <li class="user-link">
-              <a class="page-link"  href="#"><i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-          </li>
-          <li class="user-link ">
-              <a class="page-link"  href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-          </li>
-          <li class="user-link">
-              <a class="page-link"  href="#"><i class="fa fa-search" aria-hidden="true"></i></i></a>
-          </li>
+            <li class="user-link">
+                <%= link_to raw('<i class="fa fa-user" aria-hidden="true"></i>'),edit_user_registration_path	,class: "page-link" %>
+                <% if user_signed_in? %>
+                Hi!
+                <%= link_to current_user.username,edit_user_registration_path	,class: "page-link" %>
+                <%= link_to 'Sign out',destroy_user_session_path, method: :delete, class: "page-link" %>
+
+                <% else %>
+                <%= link_to 'Sign in',new_user_session_path, class: "page-link" %>
+                |
+                <%= link_to 'Sign up',new_user_registration_path, class: "page-link" %>
+              <% end %>
+            </li>
+        
+            <li class="user-link ">
+                <a class="page-link"  href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </li>
+            <li class="user-link">
+                <a class="page-link"  href="#"><i class="fa fa-search" aria-hidden="true"></i></i></a>
+            </li>
+    
+
       </ul>
   </div>
   
@@ -136,5 +148,9 @@
         © 2021 GoldenShop. All right reserved.
     </div>
 </footer>
+  <div class="container-fluid">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
   </body>
 </html>

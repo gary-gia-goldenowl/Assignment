@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   belongs_to :category
-  has_many_attached :images
+  has_many_attached :photos
 
   validates :name, presence: true
   validates :description, presence: true
