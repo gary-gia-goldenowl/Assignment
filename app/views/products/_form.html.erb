@@ -17,13 +17,22 @@
   </div>
 
   <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :img %>
-    <%= form.text_field :img %>
+    <%= form.label :photos %>
+    <%= form.file_field :photos, multiple: true %>
+  </div>
+
+  <div class="field">
+    <%= form.collection_select :category_id, Category.all, :id, :title,prompt: "Select Category" %>
   </div>
 
   <div class="actions">

@@ -1,12 +1,13 @@
-class HomeController < ApplicationController
-    def index
-      @product = Product.all
-      # other controller stuff
-    end
+# frozen_string_literal: true
 
-    def show
-      @product = Product.all
-      # other controller stuff
-    end
+class HomeController < ApplicationController
+  def index
+    @products = Product.all
+    # other controller stuff
   end
-  
+
+  def show
+    @products = Product.all
+    # other controller stuff
+  end
+end
