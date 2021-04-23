@@ -22,7 +22,7 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= $product.price %></td>
+        <td>$<%= product.price %></td>
         <td> 
           <% product.photos.each do |photo| %>
             <%= image_tag(photo, size:"150x150") %>

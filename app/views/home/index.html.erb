@@ -56,94 +56,16 @@
                 </div>
 
                 <div class="product page-flex">
+                    <% @products.each do |product| %>
                     <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_9.png"></a>
-                        <h3 class="product-name">Jacket super warm for FA</h3>
-                        <div class="product-price">$250.00</div>
+                        <% product.photos.each do |photo| %>
+                            <%= link_to image_tag(photo), product, :class => 'product-img' %>
+                        <% end %>
+                        <h3 class="product-name"><%= product.name %></h3>
+                        <div class="product-price">$<%= product.price %></div>
                         <button class="product-add">ADD TO CART</button>
                     </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_2.png"></a>
-                        <h3 class="product-name">Handbag</h3>
-                        <div class="product-price">$650.00</div>
-                        <a class="page-link" href="#">
-                                <button class="product-add">ADD TO CART</button>
-                        </a>
-                   </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_3.png"></a>
-                        <h3 class="product-name">Jacket super warm for FA</h3>
-                        <div class="product-price">$350.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                    </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_6.png"></a>
-                        <h3 class="product-name">Glasses avoid dog food for FA</h3>
-                        <div class="product-price">$150.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-
-                    </div>
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_1.png"></a>
-                        <h3 class="product-name">Jacket super warm for FA</h3>
-                        <div class="product-price">$250.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                    </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_6.png"></a>
-                        <h3 class="product-name">Glasses avoid dog food for FA</h3>
-                        <div class="product-price">$250.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                    </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_3.png"></a>
-                        <h3 class="product-name">Jacket super warm for FA</h3>
-                        <div class="product-price">$250.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                   </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_9.png"></a>
-                        <h3 class="product-name">Jacket super warm for FA</h3>
-                        <div class="product-price">$250.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                    </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_2.png"></a>
-                        <h3 class="product-name">Handbag</h3>
-                        <div class="product-price">$650.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                    </div>
-
-                    <div class="product-item">
-                        <a href="../html/product-detail.html"><img class="product-img" src="assets/img/product_1.png"></a>
-                        <h3 class="product-name">Jacket super warm for FA</h3>
-                        <div class="product-price">$350.00</div>
-                        <a class="page-link" href="#">
-                            <button class="product-add">ADD TO CART</button>
-                        </a>
-                    </div>
-
+                    <% end %>
                 </div>
 
 
