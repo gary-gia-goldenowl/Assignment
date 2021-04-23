@@ -23,9 +23,11 @@
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
-        <td> <% product.photos.each do |photo| %>
-          <%= image_tag(photo, size:"150x150") %> <br>
-      <% end %></p></td>
+        <td> 
+          <% product.photos.each do |photo| %>
+            <%= image_tag(photo, size:"150x150") %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -48,14 +50,14 @@
     <% @products.each do |product| %>
       <div class="product-item">
           <% product.photos.each do |photo| %>
-<%= link_to image_tag(photo), product, :class => 'product-img' %>
+            <%= link_to image_tag(photo), product, :class => 'product-img' %>
           <% end %>
         <h3 class="product-name"><%= product.name %></h3>
         <div class="product-price"><%= product.price %></div>
         <button class="product-add">ADD TO CART</button>
       </div>
     <% end %>
-  </div>
+</div>
 <div class="product-title">
   <h2>Woman's</h2>
 </div>  
