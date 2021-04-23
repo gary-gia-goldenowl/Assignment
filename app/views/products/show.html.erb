@@ -1,54 +1,43 @@
 <% if user_signed_in? && current_user.admin? %>
   <p id="notice"><%= notice %></p>
-
   <p>
     <strong>Name:</strong>
     <%= @product.name %>
   </p>
-
   <p>
     <strong>Description:</strong>
     <%= @product.description %>
   </p>
-
   <p>
     <strong>Price:</strong>
     <%= @product.price %>
   </p>
-
   <strong>Photo:</strong><br>
-
   <% @product.photos.each do |photo| %>
     <%= image_tag(photo) %> <br>
-  <% end %> 
-
+  <% end %>
   <%= link_to 'Edit', edit_product_path(@product) %> |
   <%= link_to 'Back', products_path %>
-
 <% else %>
-
   <main class="page-content">
     <div class="product-detail-content ">
       <div class="product-group-img">
         <div class="product-main" id="MainContain">
           <% @product.photos.each do |photo| %>
             <%= image_tag(photo,id: "MainImg", class: "product-main-img") %>
-          <% end %>                    
+          <% end %>
         </div>
-
         <div class="product-group-thumbnail page-flex">
           <div class="product-thumbnail" >
             <% @product.photos.each do |photo| %>
               <%= image_tag(photo, :class => "product-thumbnail-img") %>
             <% end %>
           </div>
-              
           <div class="product-thumbnail" >
             <% @product.photos.each do |photo| %>
               <%= image_tag(photo, :class => "product-thumbnail-img") %>
             <% end %>
           </div>
-
           <div class="product-thumbnail" >
             <% @product.photos.each do |photo| %>
               <%= image_tag(photo, :class => "product-thumbnail-img") %>
@@ -56,7 +45,6 @@
           </div>
         </div>
       </div>
-
       <div class="product-description">
         <h1><%= @product.name %></h1>
         <div class="product-price">$<%= @product.price %></div>
@@ -79,11 +67,9 @@
         </div>
       </div>
     </div>
-
     <div class="product-title">
       <h2>RELATED PRODUCTS</h2>
     </div>
-
     <div class="product page-flex">
       <% @products.each do |product| %>
         <div class="product-item">
@@ -96,5 +82,5 @@
         </div>
       <% end %>
     </div>
-  </main> 
+  </main>
 <% end %>
