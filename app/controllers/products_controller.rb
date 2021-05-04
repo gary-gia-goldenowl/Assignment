@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
       @category = Category.find_by_name(params[:category])
       @products = Product.where(category: @category)
     else
+      @categories = Category.all
       @products = Product.all
     end
   end

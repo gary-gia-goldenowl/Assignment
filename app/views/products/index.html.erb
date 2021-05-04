@@ -35,42 +35,9 @@
   <%= link_to 'New Product', new_product_path %>
 <% else %>
   <%# --------User--------  %>
-  <div class="product-title">
-    <h2>All</h2>
-  </div>
   <div class="product page-flex">
-    <% @products.each do |product| %>
-      <%= render partial: 'product', locals: { product: product } %>
-    <% end %>
+    <h2> All </h2>
+    <%= render partial: 'product' %>
   </div>
-  <div class="product-title">
-    <h2>Woman</h2>
-  </div>
-  <div class="product page-flex">
-    <% @products.each do |product| %>
-      <% if product.category.title == "Woman's" %>
-        <%= render partial: 'product', locals: { product: product } %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="product-title">
-    <h2>Men</h2>
-  </div>
-  <div class="product page-flex">
-    <% @products.each do |product| %>
-      <% if product.category.title == "Men's" %>
-        <%= render partial: 'product', locals: { product: product } %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="product-title">
-    <h2>Accessorries</h2>
-  </div>
-  <div class="product page-flex">
-    <% @products.each do |product| %>
-      <% if product.category.title == "Accessorries" %>
-        <%= render partial: 'product', locals: { product: product } %>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render partial: 'group-product' %>
 <% end %>
