@@ -56,6 +56,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'devise', github: 'heartcombo/devise'
 gem 'erb_lint', require: false
+gem 'jquery-rails'
 gem 'omniauth', '~> 2.0'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

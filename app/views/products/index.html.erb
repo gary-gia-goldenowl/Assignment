@@ -51,6 +51,54 @@
     <% end %>
   </div>
   <div class="product-title">
-    <h2>Woman's</h2>
+    <h2>Woman</h2>
+  </div>
+  <div class="product page-flex">
+    <% @products.each do |product| %>
+      <% if product.category.title == "Woman's" %>
+        <div class="product-item">
+          <% product.photos.each do |photo| %>
+            <%= link_to image_tag(photo), product, :class => 'product-img' %>
+          <% end %>
+          <h3 class="product-name"><%= product.name %></h3>
+          <div class="product-price">$<%= product.price %></div>
+          <button class="product-add">ADD TO CART</button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="product-title">
+    <h2>Men</h2>
+  </div>
+  <div class="product page-flex">
+    <% @products.each do |product| %>
+      <% if product.category.title == "Men's" %>
+        <div class="product-item">
+          <% product.photos.each do |photo| %>
+            <%= link_to image_tag(photo), product, :class => 'product-img' %>
+          <% end %>
+          <h3 class="product-name"><%= product.name %></h3>
+          <div class="product-price">$<%= product.price %></div>
+          <button class="product-add">ADD TO CART</button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="product-title">
+    <h2>Accessorries</h2>
+  </div>
+  <div class="product page-flex">
+    <% @products.each do |product| %>
+      <% if product.category.title == "Accessorries" %>
+        <div class="product-item">
+          <% product.photos.each do |photo| %>
+            <%= link_to image_tag(photo), product, :class => 'product-img' %>
+          <% end %>
+          <h3 class="product-name"><%= product.name %></h3>
+          <div class="product-price">$<%= product.price %></div>
+          <button class="product-add">ADD TO CART</button>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
