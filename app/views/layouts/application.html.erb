@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Goldenshop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -28,7 +28,7 @@
       <div class="sidebar-menu" id="sidebar-menu">
           <button class="btn-close fa fa-times" aria-hidden="true" id="closeSidebar"></button>
         <div class="logo">
-          <a href="#"><img class="logo-img" src="assets/img/golden-owl-consulting-company-logo.png"></a>
+          <%= link_to image_tag("golden-owl-consulting-company-logo.png", class: "logo-img"), root_path%>
         </div>
           <h2>Categories</h2>
           <a class="sidebar-category page-link"><h4>Blog</h4></a>
@@ -43,13 +43,13 @@
 
 
   <div class="logo">
-      <a href="#"><img class="logo-img" src="assets/img/golden-owl-consulting-company-logo.png"></a>
+    <%= link_to image_tag("golden-owl-consulting-company-logo.png", class: "logo-img"), root_path%>
   </div>
   
 
   <div class="navbar-menu" id="menu">
       <div class="logo logo--responsive">
-          <a href="#"><img class="logo-img" src="assets/img/golden-owl-consulting-company-logo.png"></a>
+        <%= link_to image_tag("golden-owl-consulting-company-logo.png", class: "logo-img"), root_path%>
       </div>
       <ul class="group-menu page-list" id="groupMenu">
           <li class="menu-link">

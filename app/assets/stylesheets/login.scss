@@ -1,0 +1,317 @@
+.container {
+    position: relative;
+    height: 600px;
+    width: 900px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 0px 0px 0 rgba(105, 104, 104, 0.2), 0 8px 16px 0 rgba(87, 85, 85, 0.19);
+}
+
+
+/*-------------------------------*\
+    #content
+\*-------------------------------*/
+
+.content {
+    position: absolute;
+    height: 350px;
+    width: 292px;
+    top: 108px;
+    bottom: 142px;
+}
+
+.content--left-side {
+    left: 93px;
+}
+
+.content--right-side {
+    left: 510px;
+}
+
+.content__img--sign-in {
+    background-image: url('/assets/img/SignIn.png');
+}
+
+.content__img--sign-up {
+    background-image: url('/assets/img/SignUp.png');
+    background-repeat: no-repeat;
+}
+
+.content__info {
+    position: absolute;
+    width: 410px;
+    height: 345px;
+    top: 79px;
+    border-radius: 2px;
+}
+
+.content__agree {
+    position: absolute;
+    top: 187px;
+    left: -5px;
+    right: 25px;
+    bottom: 92px;
+    width: 100%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.link-forgotpass {
+    color: #05a;
+}
+
+.content-forgotpass {
+    position: relative;
+    top: 1vw;
+    left: -4px;
+    right: 25px;
+    width: 100%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.content__agree--sign-up {
+    top: 297px;
+}
+
+.agree__text {
+    position: absolute;
+    top: 5px;
+    left: 31px;
+}
+
+
+/*style agree*/
+
+input[type=checkbox] {
+    -moz-appearance: none;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    left: 784px;
+    top: 465px;
+    background: #181616;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.content__title {
+    position: relative;
+    margin-bottom: 60px;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: left;
+    width: 100%;
+}
+
+
+/*no out line*/
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.content__box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 65%;
+    border-bottom: 1px solid rgb(56, 53, 53);
+    margin-bottom: 55px;
+}
+
+.content__input-text {
+    background-color: transparent;
+    border: 0;
+    width: 88%;
+    position: absolute;
+    bottom: 0.5vw;
+}
+
+.button {
+    width: 120px;
+    height: 48px;
+    position: absolute;
+    left: -0.3vw;
+}
+
+.button--sign-in {
+    top: 297px;
+    right: 293px;
+    width: 120px;
+}
+
+.button--sign-up {
+    position: absolute;
+    top: 437px;
+    bottom: 75px;
+}
+
+.button--style {
+    background: #ffa725;
+    box-shadow: 0px 4px 10px 0.05px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    border: 0;
+}
+
+
+/*remove outline*/
+
+button:focus {
+    outline: none;
+}
+
+.button-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin-top: 2vw;
+}
+
+
+/*-------------------------------*\
+        #footer
+\*-------------------------------*/
+
+.foo {
+    position: absolute;
+    top: 488px;
+    left: 172px;
+    right: 145px;
+    bottom: 80px;
+}
+
+.link--sign-up {
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    bottom: 7px;
+    left: 100px;
+    top: 19vw;
+}
+
+.link--sign-in {
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    bottom: 7px;
+}
+
+a.link-hover:hover {
+    color: #ffa725;
+}
+
+.foo__social {
+    position: absolute;
+    left: 342px;
+    top: 6px;
+    bottom: 7px;
+    right: 0px;
+}
+
+.foo__text {
+    position: absolute;
+    left: 0px;
+    right: 151px;
+}
+
+.foo__social-icon {
+    position: absolute;
+    left: 113px;
+    right: 0px;
+    top: -6px;
+    bottom: 2px;
+}
+
+.Icon {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 30px;
+    height: 30px;
+    margin-bottom: 1px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+}
+
+.Icon--FB {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.Icon--TT {
+    background-color: #55ACEE;
+}
+
+.Icon--GG {
+    background-color: white;
+}
+
+
+/*Javascript-Message*/
+
+.message--style {
+    color: red;
+    display: inline;
+    font-size: 15px;
+}
+
+.noti--style {
+    display: none;
+}
+
+.wronginput {
+    border-bottom: 1px solid red;
+}
+
+.right--input {
+    border-bottom: 1px solid black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #f5f4f4 inset !important;
+}
+
+.button--style:hover {
+    background-color: #ffb74b;
+}
+
+.message {
+    position: absolute;
+    top: 95%;
+    width: 100%;
+}
+
+.message--up {
+    padding-top: 10px;
+}

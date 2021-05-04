@@ -1,0 +1,19 @@
+<div class="product page-flex">
+  <% @categories.each do |category| %>
+    <div class="page-flex fluid">
+      <div>
+        <h2><%= category.title %></h2>
+      </div>
+      <% category.products.each do |product| %>
+        <div class="product-item">
+          <% product.photos.each do |photo| %>
+            <%= link_to image_tag(photo), product, class: 'product-img' %>
+          <% end %>
+          <h3 class="product-name"><%= product.name %></h3>
+          <div class="product-price">$<%= product.price %></div>
+          <button class="product-add">ADD TO CART</button>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

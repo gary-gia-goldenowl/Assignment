@@ -35,22 +35,9 @@
   <%= link_to 'New Product', new_product_path %>
 <% else %>
   <%# --------User--------  %>
-  <div class="product-title">
-    <h2>All</h2>
-  </div>
   <div class="product page-flex">
-    <% @products.each do |product| %>
-      <div class="product-item">
-        <% product.photos.each do |photo| %>
-          <%= link_to image_tag(photo), product, :class => 'product-img' %>
-        <% end %>
-        <h3 class="product-name"><%= product.name %></h3>
-        <div class="product-price">$<%= product.price %></div>
-        <button class="product-add">ADD TO CART</button>
-      </div>
-    <% end %>
+    <h2> All </h2>
+    <%= render partial: 'product' %>
   </div>
-  <div class="product-title">
-    <h2>Woman's</h2>
-  </div>
+  <%= render partial: 'group-product' %>
 <% end %>
