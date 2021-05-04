@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Goldenshop</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'login', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'app', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'detail', 'data-turbolinks-track': 'reload' %>
@@ -51,7 +49,7 @@
 
   <div class="navbar-menu" id="menu">
       <div class="logo logo--responsive">
-    <%= link_to image_tag("golden-owl-consulting-company-logo.png", class: "logo-img"), root_path%>
+        <%= link_to image_tag("golden-owl-consulting-company-logo.png", class: "logo-img"), root_path%>
       </div>
       <ul class="group-menu page-list" id="groupMenu">
           <li class="menu-link">

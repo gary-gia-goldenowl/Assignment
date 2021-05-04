@@ -40,14 +40,7 @@
   </div>
   <div class="product page-flex">
     <% @products.each do |product| %>
-      <div class="product-item">
-        <% product.photos.each do |photo| %>
-          <%= link_to image_tag(photo), product, :class => 'product-img' %>
-        <% end %>
-        <h3 class="product-name"><%= product.name %></h3>
-        <div class="product-price">$<%= product.price %></div>
-        <button class="product-add">ADD TO CART</button>
-      </div>
+      <%= render partial: 'product', locals: { product: product } %>
     <% end %>
   </div>
   <div class="product-title">
@@ -56,14 +49,7 @@
   <div class="product page-flex">
     <% @products.each do |product| %>
       <% if product.category.title == "Woman's" %>
-        <div class="product-item">
-          <% product.photos.each do |photo| %>
-            <%= link_to image_tag(photo), product, :class => 'product-img' %>
-          <% end %>
-          <h3 class="product-name"><%= product.name %></h3>
-          <div class="product-price">$<%= product.price %></div>
-          <button class="product-add">ADD TO CART</button>
-        </div>
+        <%= render partial: 'product', locals: { product: product } %>
       <% end %>
     <% end %>
   </div>
@@ -73,14 +59,7 @@
   <div class="product page-flex">
     <% @products.each do |product| %>
       <% if product.category.title == "Men's" %>
-        <div class="product-item">
-          <% product.photos.each do |photo| %>
-            <%= link_to image_tag(photo), product, :class => 'product-img' %>
-          <% end %>
-          <h3 class="product-name"><%= product.name %></h3>
-          <div class="product-price">$<%= product.price %></div>
-          <button class="product-add">ADD TO CART</button>
-        </div>
+        <%= render partial: 'product', locals: { product: product } %>
       <% end %>
     <% end %>
   </div>
@@ -90,14 +69,7 @@
   <div class="product page-flex">
     <% @products.each do |product| %>
       <% if product.category.title == "Accessorries" %>
-        <div class="product-item">
-          <% product.photos.each do |photo| %>
-            <%= link_to image_tag(photo), product, :class => 'product-img' %>
-          <% end %>
-          <h3 class="product-name"><%= product.name %></h3>
-          <div class="product-price">$<%= product.price %></div>
-          <button class="product-add">ADD TO CART</button>
-        </div>
+        <%= render partial: 'product', locals: { product: product } %>
       <% end %>
     <% end %>
   </div>
