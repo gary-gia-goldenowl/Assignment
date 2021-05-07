@@ -2,8 +2,8 @@
 
 class HomeController < ApplicationController
   def index
-    @q = Product.ransack(params[:q])
-    @products = @q.result
+    @products = Product.all
+
     # other controller stuff
   end
 
