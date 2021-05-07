@@ -5,18 +5,26 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    if params.has_key?(:category)
-      @category = Category.find_by_name(params[:category])
-      @products = Product.where(category: @category)
+    @q = Product.ransack(params[:q])
+    if params[:category_id]
+      @products = Category.find(params[:category_id]).products.paginate(page: params[:page])
+      @categories = Category.find(params[:category_id])
+    elsif params[:product] && params[:product][:category_id]
+      @products = @q.result.paginate(page: params[:page]).search(params[:product][:category_id])
+      @categories = Category.all
     else
       @categories = Category.all
-      @products = Product.all
+      @products = @q.result(distinct: true).paginate(page: params[:page])
     end
+  end
+
+  def search
+    index
+    render :index
   end
 
   # GET /products/1 or /products/1.json
   def show
-    @product = Product.find(params[:id])
     @products = Product.all
   end
 

@@ -35,9 +35,23 @@
   <%= link_to 'New Product', new_product_path %>
 <% else %>
   <%# --------User--------  %>
+  <%= form_tag products_path, method: 'get' do %>
+    <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
+    <%= submit_tag "Filter", class: "btn-search" %>
+  <% end %>
   <div class="product page-flex">
-    <h2> All </h2>
+    <% if @categories.blank?  %>
+      <h2 class="fluid"> <%= @categories.title %>  </h2>
+    <% elsif request.original_url == search_products_url %>
+      <h2 class="fluid">Search result </h2>
+    <% else %>
+      <h2 class="fluid">All products</h2>
+    <% end %>
     <%= render partial: 'product' %>
   </div>
-  <%= render partial: 'group-product' %>
+  <div style="float: right">
+    <div class="digg_pagination">
+      <%= will_paginate @products, :container => false %>
+    </div>
+  </div>
 <% end %>
