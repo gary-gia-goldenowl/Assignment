@@ -96,6 +96,14 @@ body {
     flex: 20%;
 }
 
+.text-blur {
+    opacity: 0.5;
+}
+
+.sort-text {
+    cursor: pointer;
+}
+
 .btn-search {
     cursor: pointer;
     width: 70px;

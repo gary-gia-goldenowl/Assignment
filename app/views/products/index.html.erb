@@ -38,6 +38,8 @@
   <%= form_tag products_path, method: 'get' do %>
     <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
     <%= submit_tag "Filter", class: "btn-search" %>
+    <span class="sort text-blur">Sort |  </span>
+    <span class="sort sort-text"><%= sortable "Price" %> <i class="fas fa-caret-down"></i></span>
   <% end %>
   <div class="product page-flex">
     <% if @categories.blank?  %>

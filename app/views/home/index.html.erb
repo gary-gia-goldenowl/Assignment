@@ -48,9 +48,9 @@
         <div class="main-category">
           <ul class="group-btn page-list page-flex">
             <li><button class="btn-category btn-category--active">ALL</button></li>
-            <li><button class="btn-category">WOMEN'S</button></li>
-            <li><button class="btn-category">ACCESSORIES</button></li>
-            <li><button class="btn-category">MEN'S</button></li>
+            <% @categories.each do |c| %>
+              <li><button class="btn-category"><%= c.title %></button></li>
+            <% end %>
           </ul>
         </div>
         <div class="product page-flex">
