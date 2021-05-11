@@ -287,6 +287,11 @@ select:focus {
     height: 370px;
 }
 
+.product-img {
+    height: 235px;
+    width: 235px;
+}
+
 .product-item:hover .product-add {
     display: block;
 }
@@ -665,7 +670,7 @@ select:focus {
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 
-@media (max-width:1000px) {
+@media (max-width:1300px) {
     .navbar-menu {
         position: absolute;
         height: 100%;
