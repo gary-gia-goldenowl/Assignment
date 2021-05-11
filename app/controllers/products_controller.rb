@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @products = Product.all
+    @related_products = Product.where('category_id LIKE ?', "#{@product.category_id}%")
   end
 
   # GET /products/new
