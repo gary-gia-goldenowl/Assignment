@@ -39,7 +39,8 @@
     <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
     <%= submit_tag "Filter", class: "btn-search" %>
     <span class="sort text-blur">Sort |  </span>
-    <span class="sort sort-text"><%= sortable "Price" %> <i class="fas fa-caret-down"></i></span>
+    <span class="sort sort-text"><%= sortable "price" %> <i class="fas fa-caret-down"></i></span> - 
+    <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
   <% end %>
   <div class="product page-flex">
     <% if @categories.blank?  %>
@@ -57,3 +58,4 @@
     </div>
   </div>
 <% end %>
+<%= request.original_url  %>

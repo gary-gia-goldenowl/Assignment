@@ -8,14 +8,14 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     if params[:category_id]
-      @products = Category.find(params[:category_id]).products.paginate(page: params[:page])
+      @products = Category.find(params[:category_id]).products.order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
       @categories = Category.find(params[:category_id])
     elsif params[:product] && params[:product][:category_id]
-      @products = @q.result.paginate(page: params[:page]).search(params[:product][:category_id])
+      @products = @q.result.order(sort_column + ' ' + sort_direction).paginate(page: params[:page]).search(params[:product][:category_id])
       @categories = Category.all
     else
       @categories = Category.all
-      @products = @q.result(distinct: true).paginate(page: params[:page])
+      @products = @q.result(distinct: true).order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
     end
   end
 
@@ -84,7 +84,7 @@ class ProductsController < ApplicationController
   end
 
   def sort_column
-    Product.column_names.include?(params[:sort]) ? params[:sort] : 'name'
+    Product.column_names.include?(params[:sort]) ? params[:sort] : 'price'
   end
 
   def sort_direction
