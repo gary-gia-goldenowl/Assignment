@@ -489,6 +489,8 @@ select:focus {
 
 .form-filter {
     margin-left: auto;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
 }
 
 .select-box {

@@ -36,22 +36,24 @@
 <% else %>
   <%# --------User--------  %>
   <div class="form-group">
-    <%= form_tag products_path, method: 'get', class: "form-filter" do %>
-      <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
-      <%= submit_tag "Filter", class: "btn-search" %>
-      <span class="sort text-blur">Sort |  </span>
-      <span class="sort sort-text"><%= sortable "price" %> <i class="fas fa-caret-down"></i></span> - 
-      <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
-    <% end %>
   </div>
   <div class="product page-flex">
-    <% if @categories.blank?  %>
-      <h2 class="fluid"> <%= @categories.title %>  </h2>
-    <% elsif request.original_url == search_products_url %>
-      <h2 class="fluid">Search result </h2>
-    <% else %>
-      <h2 class="fluid">All products</h2>
-    <% end %>
+    <div class="fluid form-group">
+      <% if @categories.blank?  %>
+        <h2> <%= @categories.title %>  </h2>
+      <% elsif request.original_url == search_products_url %>
+        <h2>Search result </h2>
+      <% else %>
+        <h2>All products</h2>
+      <% end %>
+      <%= form_tag products_path, method: 'get', class: "form-filter" do %>
+        <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
+        <%= submit_tag "Filter", class: "btn-search" %>
+        <span class="sort text-blur">Sort |  </span>
+        <span class="sort sort-text"><%= sortable "price" %> <i class="fas fa-caret-down"></i></span> - 
+        <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
+      <% end %>
+    </div>
     <%= render partial: 'product' %>
   </div>
   <div style="float: right">
