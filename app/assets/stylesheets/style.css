@@ -96,6 +96,14 @@ body {
     flex: 20%;
 }
 
+.text-blur {
+    opacity: 0.5;
+}
+
+.sort-text {
+    cursor: pointer;
+}
+
 .btn-search {
     cursor: pointer;
     width: 70px;
@@ -277,6 +285,11 @@ select:focus {
     margin: 2.5vw;
     text-align: center;
     height: 370px;
+}
+
+.product-img {
+    height: 235px;
+    width: 235px;
 }
 
 .product-item:hover .product-add {
@@ -470,11 +483,20 @@ select:focus {
     flex: 25%;
 }
 
+.form-group {
+    display: flex;
+}
+
+.form-filter {
+    margin-left: auto;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
 .select-box {
     width: 200px;
     height: 30px;
     border: 0;
-    margin: 0 auto;
 }
 
 
@@ -650,7 +672,7 @@ select:focus {
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 
-@media (max-width:1000px) {
+@media (max-width:1300px) {
     .navbar-menu {
         position: absolute;
         height: 100%;

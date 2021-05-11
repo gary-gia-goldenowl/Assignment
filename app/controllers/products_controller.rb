@@ -2,19 +2,20 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /products or /products.json
   def index
     @q = Product.ransack(params[:q])
     if params[:category_id]
-      @products = Category.find(params[:category_id]).products.paginate(page: params[:page])
+      @products = Category.find(params[:category_id]).products.order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
       @categories = Category.find(params[:category_id])
     elsif params[:product] && params[:product][:category_id]
-      @products = @q.result.paginate(page: params[:page]).search(params[:product][:category_id])
+      @products = @q.result.order(sort_column + ' ' + sort_direction).paginate(page: params[:page]).search(params[:product][:category_id])
       @categories = Category.all
     else
       @categories = Category.all
-      @products = @q.result(distinct: true).paginate(page: params[:page])
+      @products = @q.result(distinct: true).order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
     end
   end
 
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @products = Product.all
+    @related_products = Product.where(category_id: @product.category_id)
   end
 
   # GET /products/new
@@ -80,6 +82,14 @@ class ProductsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def sort_column
+    Product.column_names.include?(params[:sort]) ? params[:sort] : 'price'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   # Only allow a list of trusted parameters through.
