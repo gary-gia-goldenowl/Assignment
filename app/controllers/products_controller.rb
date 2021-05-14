@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @products = Product.all
-    @related_products = Product.where(category_id: @product.category_id)
+    @related_products = Product.where(category_id: @product.category_id).where.not(id: @product.id)
   end
 
   # GET /products/new

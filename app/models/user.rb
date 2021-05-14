@@ -6,6 +6,7 @@ class User < ApplicationRecord
   attr_writer :login
 
   validate :validate_username
+  validates :password_confirmation, presence: true
 
   # Skip confirm email
   def confirmation_required?
@@ -18,7 +19,7 @@ class User < ApplicationRecord
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
+    if login == conditions.delete(:login)
       where(conditions.to_h).where(['lower(username) = :value OR lower(email) = :value',
                                     { value: login.downcase }]).first
     elsif conditions.key?(:username) || conditions.key?(:email)
@@ -28,6 +29,7 @@ class User < ApplicationRecord
 
   def validate_username
     errors.add(:username, :invalid) if User.where(email: username).exists?
+    errors.add(:username, :invalid) if User.where(username: username).exists?
   end
 
   # #Facebook login

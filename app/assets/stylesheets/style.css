@@ -134,7 +134,7 @@ select:focus {
     transition: 0.5s;
     top: 0;
     position: fixed;
-    background-color: rgb(241 239 233);
+    background-color: rgb(241, 239, 233);
     height: 100%;
     overflow-x: hidden;
     width: 0;
@@ -370,7 +370,7 @@ select:focus {
     flex: 10%;
     height: 400px;
     width: 400px;
-    background-color: rgb(243 243 243);
+    background-color: rgb(243, 243, 243);
     position: absolute;
     left: 50%;
     top: 25%;
@@ -677,7 +677,7 @@ select:focus {
         position: absolute;
         height: 100%;
         width: 98%;
-        background-color: rgb(241 239 233);
+        background-color: rgb(241, 239, 233);
         display: none;
         flex-wrap: wrap;
     }

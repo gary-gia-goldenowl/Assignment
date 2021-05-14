@@ -6,10 +6,10 @@
       Sign In
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="content__box">
+      <div class="field-block field-borderbot">
         <%= f.text_field :login, autofocus: true, class: "content__input-text", placeholder: "Username/Email" %>
       </div>
-      <div class="content__box">
+      <div class="field-block field-borderbot">
         <%= f.password_field :password, autocomplete: "current-password" , class: "content__input-text", placeholder: "Password" %>
       </div>
       <% if devise_mapping.rememberable? %>
