@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @q = Product.ransack(params[:q])
+    @order_item = current_order.order_items.new
+    @best_sellers = Product.find_by(bestseller: true)
+
     if params[:category_id]
       @products = Category.find(params[:category_id]).products.order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
       @categories = Category.find(params[:category_id])

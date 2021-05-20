@@ -2,10 +2,12 @@
 <html>
   <head>
     <title>Goldenshop</title>
+    <link rel="shorcut icon" type="image/png" href="/assets/images/golden-owl-consulting-company-logo.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -71,15 +73,18 @@
     <ul class="navbar-user page-list">
       <li class="user-link">
           <%= search_form_for @q, url: search_products_path, html: { method: :post } do |f| %>
-            <%= f.search_field :name_cont, class: "search-field", placeholder: "Search...." %>
+            <%= f.search_field :name_cont, class: "search-field", placeholder: "Search product's name..." %>
             <%= f.submit "Search", class:"btn-search" %>
             <% end %>            
       </li>
       <li class="user-link">
         <%= link_to raw('<i class="fa fa-user" aria-hidden="true"></i>'),edit_user_registration_path	,class: "page-link" %>
         <% if user_signed_in? %>
-          Hi!
-          <%= link_to current_user.username,edit_user_registration_path	,class: "page-link" %>
+          Welcome!
+           <% if current_user.username.blank? %> 
+          <%= link_to "User #{current_user.id}",edit_user_registration_path	,class: "page-link" %>
+          <% end %>
+          <%= link_to current_user.username,edit_user_registration_path	,class: "page-link" %> |
           <%= link_to 'Sign out',destroy_user_session_path, method: :delete, class: "page-link" %>
         <% else %>
           <%= link_to 'Sign in',new_user_session_path, class: "page-link" %>
@@ -89,7 +94,7 @@
       </li>
 
       <li class="user-link ">
-        <a class="page-link"  href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <span class="cart-text"><%= render 'layouts/cart_text' %></span>
       </li>
     </ul>
   </div>

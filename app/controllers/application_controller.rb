@@ -6,9 +6,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_search
   before_action :configure_permitted_parameters, if: :devise_controller?
+  helper_method :current_order
+  skip_before_action :verify_authenticity_token
 
   def set_search
     @q = Product.ransack(params[:q])
+  end
+
+  def current_order
+    if !current_user.nil? && !current_user.orders.nil?
+      current_user.orders.last
+    else
+      Order.new
+    end
   end
 
   protected

@@ -1,0 +1,5 @@
+<%= link_to '<i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path, class: "page-link" %>
+<% if current_order.order_items.size == 0 %>
+<% else %>
+  <span class='badge number-items'> <%= current_order.order_items.size %> </span>
+<% end %>

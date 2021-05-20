@@ -1,12 +1,11 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   attr_writer :login
 
+  has_many :orders
+
   validate :validate_username
-  validates :password_confirmation, presence: true
 
   # Skip confirm email
   def confirmation_required?
@@ -19,7 +18,7 @@ class User < ApplicationRecord
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login == conditions.delete(:login)
+    if login = conditions.delete(:login)
       where(conditions.to_h).where(['lower(username) = :value OR lower(email) = :value',
                                     { value: login.downcase }]).first
     elsif conditions.key?(:username) || conditions.key?(:email)
@@ -28,8 +27,7 @@ class User < ApplicationRecord
   end
 
   def validate_username
-    errors.add(:username, :invalid) if User.where(email: username).exists?
-    errors.add(:username, :invalid) if User.where(username: username).exists?
+    errors.add(:username, "field can't be blank ") if User.where(email: username).exists?
   end
 
   # #Facebook login
