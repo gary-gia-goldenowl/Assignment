@@ -4,4 +4,13 @@ class CartsController < ApplicationController
     redirect_to new_user_session_path if current_order.nil? && current_user.nil?
     @order_items = current_order.order_items
   end
+
+  def destroy
+    current_order.order_items.destroy_all
+    current_user.orders.destroy_all
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Product was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 end

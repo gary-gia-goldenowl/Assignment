@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    if !current_user.nil? && !current_user.orders.nil?
+    if current_user.present? && current_user.orders.present?
       current_user.orders.last
-    else
-      Order.new
+    elsif current_user.present?
+      current_user.orders.new
     end
   end
 

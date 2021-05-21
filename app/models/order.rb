@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
   before_validation :set_order_status, on: :create
 
-  def subtotal
+  def summerize
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 

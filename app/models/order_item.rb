@@ -8,7 +8,7 @@ class OrderItem < ApplicationRecord
 
   before_save :finalize
 
-  def unit_price
+  def per_product_price
     if persisted?
       self[:unit_price]
     else
@@ -16,7 +16,7 @@ class OrderItem < ApplicationRecord
     end
   end
 
-  def total_price
+  def sum_price
     unit_price * quantity
   end
 
@@ -31,7 +31,7 @@ class OrderItem < ApplicationRecord
   end
 
   def finalize
-    self[:unit_price] = unit_price
+    self[:unit_price] = per_product_price
     self[:total_price] = quantity * self[:unit_price]
   end
 end

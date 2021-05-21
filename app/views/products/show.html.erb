@@ -58,8 +58,13 @@
           </select>
         </div>
         <div class="product-quantity">
-          <input class="product-input page-form" type = "number" min="0" >
-          <button class="btn btn--round">Add to cart</button>
+          <%= form_for @order_item, remote: true do |f| %>
+            <div class="input-group-btn">
+              <%= f.hidden_field :product_id, value: @product.id %>
+              <%=f.number_field :quantity, value: 1, class: "product-input page-form",min: 1 %>
+              <%= f.submit "ADD TO CART", class: "btn btn--round" %>
+            </div>
+          <% end %>
         </div>
         <div class="product-info">
           <h3>Product description  <i class="fa fa-list-ul" aria-hidden="true"></i></h3>

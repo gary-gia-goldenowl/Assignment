@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @q = Product.ransack(params[:q])
-    @order_item = current_order.order_items.new
+    @order_item = OrderItem.new(order: current_order)
     @best_sellers = Product.find_by(bestseller: true)
 
     if params[:category_id]
@@ -30,6 +30,8 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @products = Product.all
+    @order_item = OrderItem.new(order: current_order)
+
     @related_products = Product.where(category_id: @product.category_id).where.not(id: @product.id)
   end
 

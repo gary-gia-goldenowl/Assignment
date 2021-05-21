@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   def create
-    if !current_user.nil?
+    if current_user.present?
       @order = current_order
       @order_item = @order.order_items.new(order_item_params)
       @order.save
