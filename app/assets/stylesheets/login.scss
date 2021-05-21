@@ -67,9 +67,9 @@
 }
 
 .content-forgotpass {
+    padding-top: 16px;
     position: relative;
-    top: 1vw;
-    left: -4px;
+    left: -1px;
     right: 25px;
     width: 100%;
     font-family: Roboto;
@@ -127,12 +127,19 @@ input:focus {
     outline: none;
 }
 
-.content__box {
+.field-borderbot {
+    border-bottom: 1px solid rgb(56, 53, 53);
+}
+
+.margin-none {
+    margin-bottom: 0px;
+}
+
+.field-block {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 65%;
-    border-bottom: 1px solid rgb(56, 53, 53);
     margin-bottom: 55px;
 }
 
@@ -184,7 +191,7 @@ button:focus {
     font-size: 16px;
     line-height: 19px;
     color: #FFFFFF;
-    margin-top: 2vw;
+    margin-top: 1vw;
 }
 
 
@@ -210,7 +217,7 @@ button:focus {
     color: #000000;
     bottom: 7px;
     left: 100px;
-    top: 19vw;
+    top: 340px;
 }
 
 .link--sign-in {

@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
+  get 'carts/show'
+  get 'carts/destroy'
+
   devise_for :users,
              path: '',
              path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'resgistration' },
@@ -17,5 +23,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resource :cart
+  resources :order_items
   root to: 'home#index'
 end

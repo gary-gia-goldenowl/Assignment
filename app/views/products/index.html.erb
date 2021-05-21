@@ -54,7 +54,7 @@
         <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
       <% end %>
     </div>
-    <%= render partial: 'product' %>
+    <%= render "product", product: @products, order_item: @order_item %>
   </div>
   <div style="float: right">
     <div class="digg_pagination">

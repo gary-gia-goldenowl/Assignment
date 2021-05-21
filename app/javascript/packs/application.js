@@ -4,6 +4,9 @@
 // that code so it'll be compiled.
 //= app.js
 //= detail.js
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 
 
 import Rails from "@rails/ujs"

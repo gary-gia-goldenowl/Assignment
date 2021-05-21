@@ -2,14 +2,13 @@
 
 class HomeController < ApplicationController
   def index
+    @best_sellers = Product.where(bestseller: true)
     @products = Product.all
     @categories = Category.all
-
-    # other controller stuff
+    @order_item = OrderItem.new(order: current_order)
   end
 
   def show
     @products = Product.all
-    # other controller stuff
   end
 end

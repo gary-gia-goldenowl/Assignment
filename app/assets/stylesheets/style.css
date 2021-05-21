@@ -134,7 +134,7 @@ select:focus {
     transition: 0.5s;
     top: 0;
     position: fixed;
-    background-color: rgb(241 239 233);
+    background-color: rgb(241, 239, 233);
     height: 100%;
     overflow-x: hidden;
     width: 0;
@@ -190,7 +190,7 @@ select:focus {
     color: black;
     width: 180px;
     flex: 30%;
-    font-size: 15px;
+    font-size: 18px;
     height: 50px;
     background-color: white;
     border: 1px solid #cccccc;
@@ -267,7 +267,7 @@ select:focus {
 }
 
 .product {
-    padding-left: 5vw;
+    padding-left: 7.5vw;
 }
 
 .group-btn {
@@ -311,6 +311,27 @@ select:focus {
     font-size: 15px;
     height: auto;
     background-color: #ff5621;
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.number-items {
+    font-size: 17px;
+    background: #ff4646;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -8px;
+}
+
+.none-border {
+    border: 0;
 }
 
 .blog-item {
@@ -370,7 +391,7 @@ select:focus {
     flex: 10%;
     height: 400px;
     width: 400px;
-    background-color: rgb(243 243 243);
+    background-color: rgb(243, 243, 243);
     position: absolute;
     left: 50%;
     top: 25%;
@@ -677,7 +698,7 @@ select:focus {
         position: absolute;
         height: 100%;
         width: 98%;
-        background-color: rgb(241 239 233);
+        background-color: rgb(241, 239, 233);
         display: none;
         flex-wrap: wrap;
     }

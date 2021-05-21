@@ -1,9 +1,9 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   attr_writer :login
+
+  has_many :orders
 
   validate :validate_username
 
@@ -27,7 +27,7 @@ class User < ApplicationRecord
   end
 
   def validate_username
-    errors.add(:username, :invalid) if User.where(email: username).exists?
+    errors.add(:username, "field can't be blank ") if User.where(email: username).exists?
   end
 
   # #Facebook login
