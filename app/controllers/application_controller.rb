@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    if current_user.present? && current_user.orders.present?
+    if current_user.present? && current_user.orders.present? && !current_user.admin?
       current_user.orders.last
     elsif current_user.present?
       current_user.orders.new

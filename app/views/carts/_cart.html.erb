@@ -15,6 +15,6 @@
   <% @order_items.each do |order_item| %>
     <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
   <% end %>
+  <h4 class="text-right">Total Price: <span style="color: red"><%= number_to_currency current_order.summerize %></span></h4>
+  <h4><%= link_to 'Empty cart', carts_destroy_path, method: :GET, data: { confirm: 'Are you sure?' } %></h4>
 <% end %>
-<h4 class="text-right">Total Price: <span style="color: red"><%= number_to_currency current_order.summerize %></span></h4>
-<h4><%= link_to 'Empty cart', carts_destroy_path, method: :GET, data: { confirm: 'Are you sure?' } %></h4>

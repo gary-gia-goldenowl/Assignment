@@ -63,5 +63,10 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'ransack'
 gem 'rubocop-rails', require: false
+gem 'stripe'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'will_paginate'
+# Annotate
+group :development do
+  gem 'annotate'
+end
