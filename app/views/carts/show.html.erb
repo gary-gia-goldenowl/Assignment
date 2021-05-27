@@ -1,3 +1,22 @@
-<div class="cart">
-  <%= render "cart" %>
+<% if @order_items.size != 0 %>
+  <h2 class="cart-title"> Your cart </h2>
+  <div class="cart-block ">
+    <div class="contain-item flex contain-item-head item-text-size">
+      <div class="item-photo align-text">
+        <span class="item-product-title">Products</span>
+      </div>
+      <div class="item-price align-text">
+        <span class="item-price-title"> Price </span>
+      </div>
+      <div class="item-quantity align-text">
+        Quantity
+      </div>
+      <div class="item-total align-text">
+        Total
+      </div>
+    </div>
+  <% end %>
+  <div class="cart">
+    <%= render "cart" %>
+  </div>
 </div>

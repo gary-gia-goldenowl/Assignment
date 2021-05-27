@@ -47,18 +47,23 @@
         <h2>All products</h2>
       <% end %>
       <%= form_tag products_path, method: 'get', class: "form-filter" do %>
-        <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
-        <%= submit_tag "Filter", class: "btn-search" %>
-        <span class="sort text-blur">Sort |  </span>
-        <span class="sort sort-text"><%= sortable "price" %> <i class="fas fa-caret-down"></i></span> - 
-        <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
-      <% end %>
+        <select name="cars" id="cars" class="select-box" onchange="location = this.value;">
+          <option> Select category </option>
+          <option value="<%=products_path%>"> All </option>
+          <% @categories.each do |c| %>
+            <option value="<%=category_products_path(c)%>" <%= link_to c.title, category_products_path(c) %></option>
+            <% end %>
+          </select>
+          <span class="sort text-blur">Sort |  </span>
+          <span class="sort sort-text"><%= sortable "price" %> <i class="fas fa-caret-down"></i></span> - 
+          <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
+        <% end %>
+      </div>
+      <%= render "product", product: @products, order_item: @order_item %>
     </div>
-    <%= render "product", product: @products, order_item: @order_item %>
-  </div>
-  <div style="float: right">
-    <div class="digg_pagination">
-      <%= will_paginate @products, :container => false %>
+    <div style="float: right">
+      <div class="digg_pagination">
+        <%= will_paginate @products, :container => false %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>

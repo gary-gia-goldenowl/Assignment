@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_search
+  before_action :direct_admin, only: %i[index show edit update]
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_order
   skip_before_action :verify_authenticity_token
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
     elsif current_user.present?
       current_user.orders.new
     end
+  end
+
+  def direct_admin
+    redirect_to rails_admin_path if current_user.present? && current_user.admin?
   end
 
   protected

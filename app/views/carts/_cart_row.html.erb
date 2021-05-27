@@ -1,25 +1,31 @@
-<div class="well">
-  <div class="row">
-    <div class="col-xs-8">
-      <h4><%= product.name %></h4>
+<div class="cart-row-block">
+  <div class="contain-item flex item-text-size ">
+    <div class="cart-item item-product flex ">
+      <div class="item-photo">
+        <% product.photos.each do |photo| %>
+          <%= link_to image_tag(photo, class: 'item-img'), product %>
+        <% end %>
+      </div>
+      <div class="cart-item item-name">
+        <%= product.name %>
+      </div>
     </div>
-    <div class="col-xs-4">
-      <%= form_for order_item, remote: true do |f| %>
-        <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency order_item.per_product_price %></span></h4>
-        <div class="row">
-          <div class="col-xs-4">
-            <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
-            <%= f.hidden_field :product_id, value: order_item.product.id %>
-          </div>
-          <div class="col-xs-8 text-right">
-            <div class="btn-group">
-              <%= f.submit "Update Quantity", class: "page-link" %>
-              <%= link_to "Delete", order_item,  method: :delete, remote: true, class: "page-link"  %>
-            </div>
-          </div>
+    <%= form_for order_item, id: "form_id", remote: true do |f| %>
+      <div class="cart-item item-form flex">
+        <div class="cart-item item-price align-text text-color">
+          <span><%= number_to_currency order_item.per_product_price %></span>
         </div>
-        <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency order_item.sum_price %></span></h4>
-      <% end %>
-    </div>
+        <div class="cart-item item-quantity align-text">
+          <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1, id: "text_field_id" %>
+          <%= f.hidden_field :product_id, value: order_item.product.id %>
+        </div>
+        <div class="cart-item item-total align-text text-color">
+          <span><%= number_to_currency order_item.sum_price %></span>
+        </div>
+        <div class="btn-group align-text">
+          <%= link_to '<i class="fas fa-times"></i>'.html_safe, order_item,  method: :delete, remote: true, class: "page-link"  %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -34,6 +34,12 @@ body {
     transition: 0.3s;
 }
 
+.category-link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
 .page-link:hover {
     color: #ffa725;
 }
@@ -267,7 +273,7 @@ select:focus {
 }
 
 .product {
-    padding-left: 7.5vw;
+    padding-left: 85px;
 }
 
 .group-btn {
@@ -693,7 +699,7 @@ select:focus {
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 
-@media (max-width:1300px) {
+@media (max-width:1500px) {
     .navbar-menu {
         position: absolute;
         height: 100%;

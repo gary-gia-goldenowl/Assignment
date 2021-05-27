@@ -1,3 +1,134 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.cart {}
+
+.cart-title {
+    font-size: 30px;
+    line-height: 50px;
+    font-weight: 400;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.cart-detail-total {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 60px;
+    padding-bottom: 60px;
+}
+
+.cart-total {
+    font-family: 'Quicksand', sans-serif!important;
+}
+
+.btn-checkout {
+    width: 100%;
+    font-size: 25px;
+}
+
+.text-total {
+    font-weight: 700;
+    font-size: 35px;
+    padding-left: 15px;
+    color: #ff8300;
+}
+
+.text-total-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.cart-row-block {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    width: 100%;
+}
+
+.cart-block {
+    box-shadow: 0 0px 0px 0 rgba(105, 104, 104, 0.2), 0 8px 16px 0 rgba(87, 85, 85, 0.19);
+    width: 1500px;
+    margin: 0 auto;
+}
+
+.item-text-size {
+    font-size: 23px;
+}
+
+.contain-item-head {
+    width: 100%;
+    background-color: #eaeaea;
+}
+
+.text-color {
+    color: #ff8300;
+}
+
+.contain-item {
+    width: 100%;
+}
+
+.item-img {
+    max-width: 170px;
+    max-height: 170px;
+}
+
+.cart-item {
+    margin: 50px;
+    flex: auto;
+}
+
+.cart-item .form-control {
+    border: 0;
+    width: 55%;
+    font-size: 25px;
+}
+
+.align-text {
+    margin-block-start: 2.5em;
+    margin-block-end: 2.5em;
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: no-wrap;
+}
+
+.item-photo {
+    width: 37%;
+}
+
+.item-product-title {
+    padding-left: 220px;
+}
+
+.item-price-title {
+    padding-left: 50px;
+}
+
+.item-price {
+    width: 35%;
+    text-align: center;
+}
+
+.item-quantity {
+    width: 18%;
+}
+
+.item-total {
+    width: 16%;
+}
+
+@media (max-width:1500px) {
+    .cart-block {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .cart-item {
+        margin: 58px 4px 25px 18px;
+        flex: auto;
+    }
+}

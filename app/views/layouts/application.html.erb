@@ -80,7 +80,7 @@
       <li class="user-link">
         <%= link_to raw('<i class="fa fa-user" aria-hidden="true"></i>'),edit_user_registration_path	,class: "page-link" %>
         <% if user_signed_in? %>
-          Welcome!
+          Hi!
            <% if current_user.username.blank? %> 
           <%= link_to "User #{current_user.id}",edit_user_registration_path	,class: "page-link" %>
           <% end %>
