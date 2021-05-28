@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
     @order_item = OrderItem.new(order: current_order)
     if params[:category_id]
       @products = Category.find(params[:category_id]).products.order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
-      @categories = Category.find(params[:category_id])
       @categories = Category.all
 
     elsif params[:product] && params[:product][:category_id]
@@ -18,6 +17,7 @@ class ProductsController < ApplicationController
       @categories = Category.all
     else
       @categories = Category.all
+
       @products = @q.result(distinct: true).order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
     end
   end

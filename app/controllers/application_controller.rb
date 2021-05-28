@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_search
+  before_action :set_category
+
   before_action :direct_admin, only: %i[index show edit update]
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_order
@@ -12,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @q = Product.ransack(params[:q])
+  end
+
+  def set_category
+    @categories = Category.all
   end
 
   def current_order

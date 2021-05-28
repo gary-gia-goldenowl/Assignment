@@ -1,8 +1,10 @@
+require 'nested_form/engine'
+require 'nested_form/builder_mixin'
 RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
-  config.authorize_with do
-    redirect_to main_app.root_path unless current_user.admin?
-  end
+  # config.authorize_with do
+  #   redirect_to main_app.root_path unless current_user.admin?
+  # end
   ### Popular gems integration
 
   ## == Devise ==
