@@ -31,10 +31,10 @@
         <div class="logo">
           <%= link_to image_tag("golden-owl-consulting-company-logo.png", class: "logo-img"), root_path%>
         </div>
-          <h2>Categories</h2>
-          <a class="sidebar-category page-link"><h4>Blog</h4></a>
-          <a class="sidebar-category page-link"><h4>Product</h4></a>
-          <a class="sidebar-category page-link"><h4>Best Sellers</h4></a>
+          <h2><%= link_to "Categories", products_path, class: "page-link" %></h2>
+          <% @categories.each do |c| %>
+            <h4><%= link_to c.title, category_products_path(c), class: "sidebar-category page-link" %></h4>
+          <% end %>
           <h2>Contact</h2>
           <h4 class="sidebar-contact">If you have any question please dont hesitate to contact us!</h4>
           <input class="sidebar-email" type = "text" placeholder="Your email">
@@ -54,15 +54,20 @@
       </div>
       <ul class="group-menu page-list" id="groupMenu">
           <li class="menu-link">
-              <%= link_to 'Home', root_path , class: "page-link" %>
-          </li>
-
-          <li class="menu-link">
-          <a class="page-link"  href="#">Blog</a>
-
+            <%= link_to 'Home', root_path , class: "page-link" %>
           </li>
           <li class="menu-link">
-          <%= link_to 'Products', products_path , class: "page-link" %>
+            <div class="dropdown">
+              <%= link_to "Categories"' <i class="fas fa-caret-down"></i>'.html_safe, products_path , class: "page-link dropbtn" %>
+              <div class="dropdown-content">
+                <% @categories.each do |c| %>
+                  <%= link_to c.title, category_products_path(c)%>
+                <% end %>
+              </div>
+            </div>
+          </li>
+          <li class="menu-link">
+            <%= link_to 'Products', products_path , class: "page-link" %>
           </li>
           <li class="menu-link">
               <a class="page-link"  href="#">Contact</a>
@@ -80,7 +85,7 @@
       <li class="user-link">
         <%= link_to raw('<i class="fa fa-user" aria-hidden="true"></i>'),edit_user_registration_path	,class: "page-link" %>
         <% if user_signed_in? %>
-          Welcome!
+          Hi!
            <% if current_user.username.blank? %> 
           <%= link_to "User #{current_user.id}",edit_user_registration_path	,class: "page-link" %>
           <% end %>

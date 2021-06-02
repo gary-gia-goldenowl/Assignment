@@ -34,6 +34,12 @@ body {
     transition: 0.3s;
 }
 
+.category-link {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
 .page-link:hover {
     color: #ffa725;
 }
@@ -59,12 +65,12 @@ body {
 
 .group-menu {
     display: flex;
+    flex-wrap: nowrap;
 }
 
 .menu-link {
-    flex: 15%;
     font-size: 1.0vw;
-    padding-right: 7vw;
+    padding-right: 5vw;
 }
 
 .search-field {
@@ -97,11 +103,23 @@ body {
 }
 
 .text-blur {
+    font-size: 20px;
     opacity: 0.5;
 }
 
 .sort-text {
+    font-size: 20px;
     cursor: pointer;
+}
+
+.sort-text a {
+    color: black;
+    text-decoration: none;
+}
+
+.sort-text a:hover {
+    transition: 0.3s;
+    color: #ffa725;
 }
 
 .btn-search {
@@ -267,7 +285,7 @@ select:focus {
 }
 
 .product {
-    padding-left: 7.5vw;
+    padding-left: 85px;
 }
 
 .group-btn {
@@ -508,7 +526,8 @@ select:focus {
     display: flex;
 }
 
-.form-filter {
+.form-sort {
+    padding-right: 180px;
     margin-left: auto;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
@@ -520,10 +539,70 @@ select:focus {
     border: 0;
 }
 
+.dropbtn {
+    color: black;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 130px;
+    min-height: 150px;
+    padding-top: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(223, 222, 222, 0.801);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 15px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.product-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.product-category {
+    font-size: 20px;
+    color: rgb(139, 139, 139);
+}
+
+.filter-container {
+    margin: 2.5vw;
+}
+
+.product-contain {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dropdown-content a:hover {
+    transition: 0.3s;
+    color: #ffa725;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /* will-paginate */
 
 .digg_pagination {
+    float: right;
+    padding-right: 180px;
     background: white;
     cursor: default;
     /* self-clearing method: */
@@ -693,10 +772,10 @@ select:focus {
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 
-@media (max-width:1300px) {
+@media (max-width:1500px) {
     .navbar-menu {
         position: absolute;
-        height: 100%;
+        height: 205%;
         width: 98%;
         background-color: rgb(241, 239, 233);
         display: none;
@@ -729,12 +808,12 @@ select:focus {
         right: 2%;
     }
     .menu-link {
-        font-size: 25px;
-        padding-top: 50px;
-        padding-right: 20vw;
-        ;
+        font-size: 16px;
+        padding-top: 60px;
+        padding-right: 14vw;
+        padding-left: 21vw;
         text-align: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         flex-flow: column;
     }
     .group-menu {

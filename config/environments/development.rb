@@ -79,4 +79,6 @@ Rails.application.configure do
   # Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.assets.check_precompiled_asset = false
+
+  # config.force_ssl = true
 end

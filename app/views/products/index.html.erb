@@ -44,21 +44,27 @@
       <% elsif request.original_url == search_products_url %>
         <h2>Search result </h2>
       <% else %>
-        <h2>All products</h2>
+        <h2>ALL PRODUCTS</h2>
       <% end %>
-      <%= form_tag products_path, method: 'get', class: "form-filter" do %>
-        <%= collection_select :product, :category_id, Category.all, :id, :title, {prompt: "Select Category"}, {class: "select-box"} %>
-        <%= submit_tag "Filter", class: "btn-search" %>
-        <span class="sort text-blur">Sort |  </span>
+      <div class="form-sort">
+        <span class="sort text-blur">Sort by |  </span>
         <span class="sort sort-text"><%= sortable "price" %> <i class="fas fa-caret-down"></i></span> - 
         <span class="sort sort-text"><%= sortable "name" %> <i class="fas fa-caret-down"></i></span>
-      <% end %>
+      </div>
     </div>
-    <%= render "product", product: @products, order_item: @order_item %>
+    <div class="product-container">
+      <div class="filter-container">
+        <h2><%= link_to "Categories", products_path, class: "page-link" %></h2>
+        <% @categories.each do |c| %>
+          <h4><%= link_to c.title, category_products_path(c), class: "sidebar-category page-link product-category" %></h4>
+        <% end %>
+      </div>
+      <div class="product-contain">
+        <%= render "product", product: @products, order_item: @order_item %>
+      </div>
+    </div>
   </div>
-  <div style="float: right">
-    <div class="digg_pagination">
-      <%= will_paginate @products, :container => false %>
-    </div>
+  <div class="digg_pagination">
+    <%= will_paginate @products, :container => false %>
   </div>
 <% end %>

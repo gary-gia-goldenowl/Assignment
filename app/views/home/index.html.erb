@@ -32,46 +32,50 @@
     <div class="main-content">
       <div class="content-title">
         <a class="page-link" href="#">
-          <h1>Categories</h1>
+          <h1><%= link_to "Categories", products_path, class: "page-link" %></h1>
         </a>
       </div>
       <div class="main-category">
         <ul class="group-btn page-list page-flex">
-          <li><button class="btn-category btn-category--active">ALL</button></li>
+          <li><button class="btn-category btn-category--active">
+              <%= link_to "All", products_path, class: "category-link" %>
+            </button></li>
           <% @categories.each do |c| %>
-            <li><button class="btn-category"><%= c.title %></button></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="product page-flex">
-        <% @products.each do |product| %>
-          <%= render "product", product: product, order_item: @order_item %>
+            <li><button class="btn-category"><%= link_to c.title, category_products_path(c), class: "category-link" %></li>
+            </button>
+          </button>
         <% end %>
+      </ul>
+    </div>
+    <div class="product page-flex">
+      <% @products.each do |product| %>
+        <%= render "product", product: product, order_item: @order_item %>
+      <% end %>
+    </div>
+    <div class="content-title">
+      <a class="page-link" href="#">
+        <h1>Best Sellers</h1>
+      </a>
+    </div>
+    <div class="product page-flex">
+      <% @best_sellers.each do |product| %>
+        <%= render "product", product: product, order_item: @order_item %>
+      <% end %>
+    </div>
+    <div class="blog page-flex">
+      <div class="blog-item">
+        <a href="#"><img class="blog-img" src="assets/img/blog_1.jpg"></a>
       </div>
-      <div class="content-title">
-        <a class="page-link" href="#">
-          <h1>Best Sellers</h1>
-        </a>
+      <div class="blog-item">
+        <a href="#"><img class="blog-img" src="assets/img/blog_3.jpg"></a>
       </div>
-      <div class="product page-flex">
-        <% @best_sellers.each do |product| %>
-          <%= render "product", product: product, order_item: @order_item %>
-        <% end %>
+      <div class="blog-item">
+        <a href="#"><img class="blog-img" src="assets/img/blog_2.jpg"></a>
       </div>
-      <div class="blog page-flex">
-        <div class="blog-item">
-          <a href="#"><img class="blog-img" src="assets/img/blog_1.jpg"></a>
-        </div>
-        <div class="blog-item">
-          <a href="#"><img class="blog-img" src="assets/img/blog_3.jpg"></a>
-        </div>
-        <div class="blog-item">
-          <a href="#"><img class="blog-img" src="assets/img/blog_2.jpg"></a>
-        </div>
-        <div class="blog-btn">
-          <button class="btn"> View more blog</button>
-        </div>
+      <div class="blog-btn">
+        <button class="btn"> View more blog</button>
       </div>
     </div>
-  </main>
+  </div>
+</main>
 </body>

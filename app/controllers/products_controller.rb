@@ -8,16 +8,16 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @order_item = OrderItem.new(order: current_order)
-    @best_sellers = Product.find_by(bestseller: true)
-
     if params[:category_id]
       @products = Category.find(params[:category_id]).products.order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
-      @categories = Category.find(params[:category_id])
+      @categories = Category.all
+
     elsif params[:product] && params[:product][:category_id]
       @products = @q.result.order(sort_column + ' ' + sort_direction).paginate(page: params[:page]).search(params[:product][:category_id])
       @categories = Category.all
     else
       @categories = Category.all
+
       @products = @q.result(distinct: true).order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
     end
   end
@@ -87,6 +87,7 @@ class ProductsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])
+    @best_sellers = Product.where(bestseller: true)
   end
 
   def sort_column
