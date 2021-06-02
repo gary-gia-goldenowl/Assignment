@@ -527,7 +527,7 @@ select:focus {
 }
 
 .form-sort {
-    padding-right: 200px;
+    padding-right: 180px;
     margin-left: auto;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
@@ -813,7 +813,7 @@ select:focus {
         padding-right: 14vw;
         padding-left: 21vw;
         text-align: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         flex-flow: column;
     }
     .group-menu {
