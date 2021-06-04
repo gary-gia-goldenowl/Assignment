@@ -1,0 +1,76 @@
+// Place all the styles related to the checkouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.checkout-item-img {
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.checkout-font {
+    font-size: 20px;
+}
+
+.checkout-container {
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: center;
+}
+
+.checkout-row-block {
+    max-height: 150px;
+    width: 100%;
+}
+
+.checkout-title {
+    line-height: 100px;
+    text-align: center;
+}
+
+.checkout-form {
+    margin-top: -20px;
+    width: 455px;
+}
+
+.Content {
+    box-shadow: 0 0px 0px 0 rgba(105, 104, 104, 0.2), 0 8px 16px 0 rgba(87, 85, 85, 0.19);
+    background-color: #efefef;
+    width: 100%;
+}
+
+.checkout-item {
+    box-shadow: 0 0px 0px 0 rgba(105, 104, 104, 0.2), 0 8px 16px 0 rgba(87, 85, 85, 0.19);
+    margin-left: 105px;
+}
+
+.Content-in {
+    margin: 0px 0px 0px 40px;
+    padding: 30px 0px 40px 0px;
+}
+
+header {
+    text-align: center;
+    font-size: 40px;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+    background-color: rgb(212, 209, 209);
+}
+
+.Content-in input {
+    width: 90%;
+    height: 10px;
+    border: 0;
+    padding-bottom: 35px;
+}
+
+.btn-confirm-checkout {
+    height: 66px;
+    font-size: 20px;
+}
+
+.total-checkout {
+    float: right;
+    padding-right: 10%;
+}

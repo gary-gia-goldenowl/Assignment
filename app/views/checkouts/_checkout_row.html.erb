@@ -1,0 +1,28 @@
+<div class="checkout-row-block">
+  <div class="contain-item flex item-text-size ">
+    <div class="cart-item item-product flex ">
+      <div class="item-photo">
+        <% product.photos.each do |photo| %>
+          <%= link_to image_tag(photo, class: 'checkout-item-img'), product %>
+        <% end %>
+      </div>
+      <div class="checkout-font cart-item item-name">
+        <%= product.name %>
+      </div>
+    </div>
+    <%= form_for order_item, id: "form_id", remote: true do |f| %>
+      <div class="cart-item item-form flex">
+        <div class="checkout-font cart-item item-price align-text text-color">
+          <span><%= number_to_currency order_item.per_product_price %></span>
+        </div>
+        <div class="checkout-font cart-item item-quantity align-text">
+          <%= f.label :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1, id: "text_field_id" %>
+          <%= f.hidden_field :product_id, value: order_item.product.id %>
+        </div>
+        <div class="checkout-font cart-item item-total align-text text-color">
+          <span><%= number_to_currency order_item.sum_price %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

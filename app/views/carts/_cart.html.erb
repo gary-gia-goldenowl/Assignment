@@ -18,7 +18,7 @@
   <div class="cart-detail-total">
     <div class="cart-total">
       <h4 class="text-total-title">Total Price:<span class="text-total"><%= number_to_currency current_order.summerize %></span></h4>
-      <button class="btn btn-checkout">Checkout</button>
+      <%= button_to 'Checkout', new_checkout_path, method: :get, class: "btn btn-checkout" %>
     </div>
   </div>
 <% end %>

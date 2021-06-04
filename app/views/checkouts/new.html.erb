@@ -1,0 +1,15 @@
+<h1>Your Order</h1>
+<div class="checkout-container">
+  <div class="checkout-form">
+    <%= render 'form', checkout: @checkout %>
+  </div>
+  <div class="checkout-item">
+    <h2 class="cart-title"> Your cart </h2>
+    <% @order_items.each do |order_item| %>
+      <%= render 'checkouts/checkout_row', product: order_item.product, order_item: order_item, show_total: true %>
+    <% end %>
+    <div class="total-checkout">
+      <h5 class="text-total-title">Total Price:<span class="text-total"><%= number_to_currency current_order.summerize %></span></h4>
+    </div>
+  </div>
+</div>
