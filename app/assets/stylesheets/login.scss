@@ -30,11 +30,11 @@
 }
 
 .content__img--sign-in {
-    background-image: url('/assets/img/SignIn.png');
+    background-image: asset-url('/assets/img/SignIn.png');
 }
 
 .content__img--sign-up {
-    background-image: url('/assets/img/SignUp.png');
+    background-image: asset-url('/assets/img/SignUp.png');
     background-repeat: no-repeat;
 }
 
