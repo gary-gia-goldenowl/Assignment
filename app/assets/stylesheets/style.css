@@ -235,7 +235,7 @@ select:focus {
 }
 
 .group-banner-content {
-    background-image: url('/assets/img/slider_1.jpg');
+    background-image: asset-url('img/slider_1.jpg');
     height: 40vw;
     background-repeat: no-repeat;
     font-size: 1.5vw;
